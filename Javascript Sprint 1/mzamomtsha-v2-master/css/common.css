@@ -1,0 +1,24 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	width: auto;
+}
+
+body {
+    background-image: url("../images/background.png");
+    background-size: contain;
+    background-repeat: repeat-y;
+}
+
+ul {
+	list-style: none;
+}
+
+input {
+	min-width: none;
+}

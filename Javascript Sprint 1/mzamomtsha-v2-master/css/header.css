@@ -1,0 +1,178 @@
+/*
+ * Creates a variable that can be used anywhere in the css, it is used to
+ * create a left padding on both the two heading rows so that the logo that
+ * is does not appear over any of the heading text.
+*/
+:root {
+    --logo-width: 110px;
+}
+
+/*
+ * The styles for the header container.
+*/
+#header {
+    width: 100%;
+    height: auto;
+    border: none;
+    background-color: steelblue;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 0 8px #0005;
+    z-index: 10;
+}
+
+#header a {
+    text-decoration: none;
+    color: black;
+}
+
+/*
+ * This styles affects both the .header-top div and the .header-nav div
+*/
+.header-top,
+.header-nav {
+    /*
+	 * Firstly, remove all padding in the .header-nav and .header-top div's
+	 * Then add the relevant padding to the header.
+	 * The header width's of the the two div's are limited to 1200px. The
+	 * reason for using the padding to limit the width instead of max-width
+	 * is so that there will be a white background colour that fill the
+	 * header's full width.
+	 * To explain the padding calculations:
+	 * BOTH: Set the padding to the difference between the full width of
+	 * the header and 1200px, ie anything bigger than 1200px will have a
+	 * padding otherwise none.
+	 * LEFT: The part that says '+ var(--logo-width)' adds the
+	 * logo's width to the left padding of the header rows so that
+	 * the absolute logo will be positioned above the padding of width
+	 * --logo-width and not cover any text.
+	*/
+    padding: 0;
+    padding-left: calc(100% - 1200px + var(--logo-width));
+    padding-right: calc(100% - 1200px);
+
+    margin: 0 auto;
+}
+
+#header .logo {
+    /*
+	 * The header logo is absolutely positioned above the left padding
+	 * that was calculated in the header row styles. The transform
+	 * translateY ensures that the logo is position perfectly in the
+	 * center of the header. How this works is that the logo's top
+	 * position is 50% and then the translate shifts the logo up by
+	 * half of the logo's height to perfectly center it in the header.
+	 *
+	 * The left is set to the left of the header padding excluding the
+	 * extra padding that was added for the --logo-width.
+	*/
+    position: absolute;
+    top: 50%;
+    left: calc(100% - 1200px);
+    width: var(--logo-width);
+    transform: translateY(-50%);
+}
+#header .logo img {
+    /*
+	 * The padding allows the img to be smaller than its container so
+	 * there is spacing between the logo image and the text of the header.
+	*/
+    width: 100%;
+    padding-right: 15px;
+}
+
+.header-top {
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-nav {
+    background-color: white;
+}
+
+.header-top h2 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-style: italic; */
+    font-weight: bold;
+    font-variant: small-caps;
+    letter-spacing: 0.25rem;
+    flex: 1;
+    /* text-shadow: 0 0 3px white, 0 0 5px #0000ff; */
+}
+
+.header-top .search-container {
+    display: flex;
+}
+.header-top .search-container input {
+    flex: 1;
+    min-width: none;
+    min-height: none;
+    height: 25px;
+    padding: 5px;
+}
+
+.header-top .search-container button {
+    height: 25px;
+    padding: 2.5px;
+    width: 25px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: content-box;
+    background-color: #f7f7f7;
+    cursor: pointer;
+}
+.header-top .search-container button:hover {
+    color: steelblue;
+}
+
+.header-container ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.header-nav .navigation {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.header-nav .navigation li a {
+    padding: 18px 20px;
+    display: block;
+    font-size: large;
+}
+
+#header .header-nav .navigation a:hover {
+    background-color: steelblue;
+    box-shadow: -5px 0 5px -5px #0007, 5px 0 5px -5px #0007;
+    color: white;
+
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+@media only screen and (max-width: 768px) {
+    #header .header-top {
+        flex-flow: column;
+    }
+    #header .search-container {
+        width: 100%;
+        padding: 0 15px;
+    }
+    #header .school-title {
+        text-align: center;
+    }
+    #header .navigation {
+        justify-content: center;
+    }
+}

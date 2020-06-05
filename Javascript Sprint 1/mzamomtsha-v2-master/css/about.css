@@ -1,0 +1,122 @@
+#content {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 23px;
+    padding-bottom: 23px;
+}
+
+#content .page-header {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 25px;
+    margin: 0 -23px;
+
+    background-image: url("../images/school_about.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+
+    text-shadow: 0 0 10px #000;
+    font-size: 2rem;
+}
+#content .page-header .page-title {
+    margin-top: 0;
+    font-size: 1.875em;
+}
+#content .page-header .page-subtitle {
+    margin-top: 0;
+    font-size: 1.525em;
+}
+
+#content .school-image {
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 3px 20px #0003;
+}
+
+#content .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 768px;
+    margin: 0 auto;
+}
+#content .content-left,
+#content .content-right {
+    flex: 1;
+}
+
+#content .content-title {
+    text-align: center;
+    font-size: 35px;
+    color: transparent;
+    text-transform: uppercase;
+    background-image: linear-gradient(to right, black, #999511);
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: animate 5s linear infinite;
+    background-size: 1000%;
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0% 100%;
+    }
+    50% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+#content .content-wrapper .faq-item {
+    padding: 8px 20px;
+}
+#content .content-wrapper .faq-item .question,
+#content .content-wrapper .faq-item .answer {
+    margin: 0;
+}
+#content .content-wrapper .faq-item .question {
+    font-weight: bold;
+}
+
+@media only screen and (min-width: 600px) {
+    body {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    #content .content-wrapper {
+        flex-direction: row;
+        max-width: 100%;
+    }
+}
+
+button.Expand{
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  padding: 15px 10px;
+  background-color: lightgrey;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.175s linear;
+}
+
+button.Expand:hover{
+  background-color: darkgrey;
+}
+
+.Expand-Content{
+  padding: 0 10px;
+  border-left: 2px solid lightgrey;
+  border-right: 2px solid lightgrey;
+  max-height: 0;
+  overflow: hidden;
+  background-color: white;
+  transition: max-height 0.2s ease-in;
+}
